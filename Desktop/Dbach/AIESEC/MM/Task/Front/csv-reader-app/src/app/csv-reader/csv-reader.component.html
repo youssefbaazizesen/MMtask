@@ -1,0 +1,22 @@
+<!-- src/app/csv-reader/csv-reader.component.html -->
+
+<div class="csv-reader-container">
+    <form>
+      <input type="file" (change)="onFileChange($event)" />
+    </form>
+    <div *ngIf="csvData.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let header of csvData[0] | keyvalue">{{ header.key }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of csvData">
+            <td *ngFor="let cell of row | keyvalue">{{ cell.value }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
